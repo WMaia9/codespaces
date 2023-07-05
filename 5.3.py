@@ -20,7 +20,7 @@ class Pilha:
 
     def imprimir_pilha(self):
         for aluno in self.pilha[::-1]:
-            print(f"{aluno.nome} {aluno.idade} {aluno.sexo}")
+            print(f"{aluno.nome} {aluno.idade} {aluno.sexo}", end="\t")
 
 
 tamanho = int(input())
@@ -31,7 +31,7 @@ entrada = input().split()
 for i in range(0, len(entrada), 4):
     operacao = entrada[i]
     nome = entrada[i + 1]
-    idade = int(entrada[i + 2])
+    idade = entrada[i + 2]
     sexo = entrada[i + 3]
 
     if operacao == 'i':
