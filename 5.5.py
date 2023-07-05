@@ -20,20 +20,20 @@ class Fila:
 
     def imprimir_fila(self):
         for carro in self.fila:
-            print(f"{carro.nome} {carro.ano} {carro.valor:.2f}")
+            print(f"{carro.nome} {carro.ano} {carro.valor:.2f}", end="\t")
 
 
 tamanho = int(input())
 fila = Fila(tamanho)
 
-operacoes = input().split()
+entrada = input().split()
 
-for i in range(0, len(operacoes), 4):
-    operacao = operacoes[i]
+for i in range(0, len(entrada), 4):
+    operacao = entrada[i]
     if operacao == 'i':
-        nome = operacoes[i + 1]
-        ano = int(operacoes[i + 2])
-        valor = float(operacoes[i + 3])
+        nome = entrada[i + 1]
+        ano = int(entrada[i + 2])
+        valor = float(entrada[i + 3])
         carro = Carro(nome, ano, valor)
         fila.enqueue(carro)
     elif operacao == 'r':
