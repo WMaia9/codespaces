@@ -23,9 +23,8 @@ entrada = input().split()
 
 for i in range(0, len(entrada), 2):
     operacao = entrada[i]
-    valor = int(entrada[i + 1])
-
     if operacao == 'i':
+        valor = int(entrada[i + 1])
         fila.enqueue(valor)
     elif operacao == 'r':
         fila.dequeue()
