@@ -57,5 +57,6 @@ else:
 
 for elemento in elementos:
     tabela.inserir(elemento)
+    
 
 tabela.imprimir_tabela()

@@ -38,5 +38,4 @@ for i in range(0, len(entrada), 4):
         fila.enqueue(carro)
     elif operacao == 'r':
         fila.dequeue()
-
 fila.imprimir_fila()
