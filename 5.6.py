@@ -19,7 +19,7 @@ def insert_with_linear_probing(N, M, elements):
 def print_hash_table(hash_table):
     for index, entry in enumerate(hash_table):
         if len(entry) > 0:
-            elements = ", ".join(map(str, entry))
+            elements = ", ".join(map(str, reversed(entry)))
             print(f"[{index}] -> {elements}")
         else:
             print(f"[{index}] ->")
