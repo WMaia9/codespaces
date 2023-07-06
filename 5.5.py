@@ -19,8 +19,8 @@ class Fila:
             return self.fila.pop(0)
 
     def imprimir_fila(self):
-        for carro in self.fila:
-            print(f"{carro.nome} {carro.ano} {carro.valor:.2f}", end="\t")
+        for i, carro in enumerate(self.fila):
+            print(f"{carro.nome} {carro.ano} {carro.valor:.2f}", end=" " if i != len(self.fila) - 1 else "")
 
 
 tamanho = int(input())
