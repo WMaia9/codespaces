@@ -1,33 +1,46 @@
-class Pilha:
-    def __init__(self, tamanho_maximo):
-        self.tamanho_maximo = tamanho_maximo
-        self.pilha = []
-
-    def push(self, valor):
-        if len(self.pilha) < self.tamanho_maximo:
-            self.pilha.append(valor)
-
-    def pop(self):
-        if len(self.pilha) > 0:
-            return self.pilha.pop()
-
-    def obter_pilha(self):
-        return self.pilha[::-1]
+class Node:
+    def __init__(self, age, name):
+        self.age = age
+        self.name = name
+        self.next = None
 
 
-tamanho = int(input())
-pilha = Pilha(tamanho)
+class LinkedList:
+    def __init__(self):
+        self.head = None
 
-operacoes = input().split()
+    def insert_ordered(self, age, name):
+        new_node = Node(age, name)
 
-for i in range(0, len(operacoes), 2):
-    operacao = operacoes[i]
-    valor = int(operacoes[i + 1])
+        if self.head is None or age < self.head.age:
+            new_node.next = self.head
+            self.head = new_node
+        else:
+            current = self.head
+            while current.next is not None and age >= current.next.age:
+                current = current.next
+            new_node.next = current.next
+            current.next = new_node
 
-    if operacao == 'i':
-        pilha.push(valor)
-    elif operacao == 'r':
-        pilha.pop()
+    def print_list(self):
+        current = self.head
+        while current is not None:
+            print(current.name)
+            current = current.next
 
-resultado = pilha.obter_pilha()
-print(' '.join(map(str, resultado)))
+
+# Função principal
+def main():
+    n = int(input())
+
+    linked_list = LinkedList()
+
+    for _ in range(n):
+        age, name = input().split(' ', 1)
+        linked_list.insert_ordered(int(age), name)
+
+    linked_list.print_list()
+
+
+if __name__ == '__main__':
+    main()

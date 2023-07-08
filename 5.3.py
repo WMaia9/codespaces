@@ -4,12 +4,11 @@ class Aluno:
         self.idade = idade
         self.sexo = sexo
 
-
 class Pilha:
     def __init__(self, tamanho_maximo):
         self.tamanho_maximo = tamanho_maximo
         self.pilha = []
-
+        
     def push(self, aluno):
         if len(self.pilha) < self.tamanho_maximo:
             self.pilha.append(aluno)
